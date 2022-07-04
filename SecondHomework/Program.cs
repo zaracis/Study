@@ -1,66 +1,37 @@
-﻿/*
-//Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цифру этого числа.
-int CutNumber()
+﻿/* Задача 1. Показать 2-ю цифру трехзн. числа:
+int CutNumber(int num)
 {
-    int num = new Random().Next(100,1000);
-    Console.WriteLine("Current random number is " + num);
+    int des = (num % 100) / 10;
+    return des;
+}
+Console.Write("Input a number between 100 and 999: ");
+int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(CutNumber (number));
+*/ 
 
-    int sotni = num /100;
-    int ed = num % 10;
-    int result = sotni * 10 + ed;
-    return result;
+/* Задача 2. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+int ThirdPosition (int number)
+{
+    while (number > 1000) 
+        number = number / 10;
+    if (number > 99) number = number % 100 % 10;
+        else Console.WriteLine("The third position is absent");
+    return number;
+}
+Console.Write("Input a number: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(ThirdPosition(n));
+*/ 
+
+// Задача 3. Показать выходной: 
+
+void Weekend (int num)
+{
+    if (num == 6 || num == 7) Console.WriteLine("Yes");
+    if (num > 1 && num < 6) Console.WriteLine("No");
+    if (num < 1 || num > 7) Console.WriteLine("Uncorrect number!");
 }
 
-
-int number = CutNumber();
-Console.WriteLine("Result is " + number);
-*/
-
-/*
-//Напишите программу, которая выводит случайное число из отрезка [10, 99] и показывает наибольшую цифру числа.
-int MaxNumber()
-{
-    int num = new Random().Next(10,100);
-    Console.WriteLine("Current random number is " + num);
-
-    int desyat = num /10;
-    int ed = num % 10;
-    if(desyat > ed)
-    {
-        return desyat;
-    }
-    else
-    {
-        return ed;
-    }
-}
-int number = MaxNumber();
-Console.WriteLine("Result is " + number);
-*/
-/*
-//Напишите программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23.
-void NumberDel(int x)
-{
-    Console.WriteLine("Input number: ");
-    if(x % 7 == 0 & x % 23 == 0)
-        Console.WriteLine("Yes");
-}
-
-Console.WriteLine("Result is ");
-*/
-
-//Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
-void IsQuad(int num1, int num2)
-{
-    int quad2 = num2 * num2;
-    int quad1 = num1 * num1;
-    if(num1 == quad2)
-        Console.WriteLine("Yes");
-    else
-        if(num2 == quad1)
-            Console.WriteLine("Yes");
-        else
-            Console.WriteLine("No");
-}
-
-IsQuad();
+Console.WriteLine("Input a day's number: ");
+int day = Convert.ToInt32(Console.ReadLine());
+Weekend (day);
