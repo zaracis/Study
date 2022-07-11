@@ -1,4 +1,5 @@
-﻿//Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+﻿/*
+//Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 Console.Write("Введите число N: ");
 int numberN = Convert.ToInt32(Console.ReadLine());
 
@@ -18,7 +19,7 @@ int numberN = Convert.ToInt32(Console.ReadLine());
 
 int sumNumber = SumNumber(numberN);
 Console.WriteLine("Сумма цифр в числе: " + sumNumber);
-
+*/
 //Задача 29: Напишите программу, которая задаёт массив из m элементов и выводит их на экран.
 Console.Write("Введите ряд чисел, разделенных запятой : ");
 string? seriesOfNumbers = Console.ReadLine();
@@ -53,7 +54,44 @@ void СheckNumber2 (int  series){
       }
 }
 
- 
+// функция  создания и заполнения массива из строки
+int[] ArrayOfNumbers(string seriesNew){ 
+
+  int[] arrayOfNumbers = new int[1];    // инициализация массива из 1 элемента
+
+  int j =0;
+
+  for (int i = 0; i < seriesNew.Length; i++){
+    string seriesNew1 = "";
+
+    while (seriesNew[i] != ',' && i < seriesNew.Length){
+      seriesNew1 += seriesNew[i];
+      СheckNumber2(seriesNew[i]);
+      i++;
+    }
+    arrayOfNumbers[j] = Convert.ToInt32(seriesNew1);    // заполняет массив значениями из строки
+    if (i < seriesNew.Length-1){
+      arrayOfNumbers = arrayOfNumbers.Concat(new int[] {0}).ToArray();    // добавляет новый нулевой элемент в конец массива
+    }
+    j++;
+  }
+  return arrayOfNumbers;
+}
+
+// функция  вывода массива на печать 
+void PrintArry(int[] coll){
+  int count = coll.Length;
+  int index = 0;
+  Console.Write("[");
+  while(index < count){
+    Console.Write(coll[index]);
+    index++;
+    if (index < count){
+      Console.Write(", ");
+    }
+  }
+  Console.Write("]");
+} 
 
 
 string seriesNew = RemovingSpaces(seriesOfNumbers);
